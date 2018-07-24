@@ -1,0 +1,155 @@
+install:
+php composer.phar require slim/slim "^3.0"
+
+Create index.php
+        require "vendor/autoload.php"
+Slim Default Skeleton:
+    use \Psr\Http\Message\ServerRequestInterface as Request;
+    use \Psr\Http\Message\ResponseInterface as Response;
+
+    require 'vendor/autoload.php';
+
+    $app = new \Slim\App;
+    $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+        $name = $args['name'];
+        $response->getBody()->write("Hello, $name");
+
+        return $response;
+    });
+    $app->run();
+
+
+How to :
+=========
+
+1st Midleware compoent
+-----------------------
+        use ...
+        get('/messages',function(){
+        });
+
+        $app->run();
+
+
+
+Databse : Illuminate
+---------------------
+
+C:\ composer.phar require illuminate/databse "~5.2"
+
+
+Folder : config >> creds.php
+$host
+$dbName
+$dbUser
+$dbPass
+
+index.php
+include 'bootstrap.php'
+
+bootstrap.php
+--------------
+include 'config/creds.php';
+include 'vendor/autoload.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule();
+$capsule->addConnection([
+"driver" => mysql,
+"host" => $host,
+"database" => $dbName;
+"username" => $dbUser,
+"password" => $dbPass,
+
+/*other parameters*/
+"charset" => "utf8",
+"collation" => "utf8_general_ci",
+"prefix" => ""
+]);
+
+$capsule->bootEloquent();
+
+
+
+Create a class
+---------------
+folder [./src]
+            |_ProjectName [Chatter]
+                        |_Models
+                                |_ Message.php
+
+Message.php
+-----------
+
+namespace Chatter\Models;
+
+class Message extends \Illuminate\Database\Eloquent\Model
+/* Provides database operations
+{
+/*code here*/
+}
+
+
+Update composer.json
+-------------------------------------------------
+"autoload":{
+    "psr-4":{"Chatter:\\":"src\Chatter"}
+}
+
+C:\ composer.phar update
+
+index.php
+----------
+use Chatter\Models\Message
+$app-> ... {
+
+            $_message = new Message();
+            $messages = $_message->all(); // query db get all message ORM elequent
+
+            $data=[]
+            foreach($messages as $_msg){
+            $data[$_msg->id] = ['body' => $_msg->body,
+                                'user_id' => $_msg->user_id,
+                                'create_dt' => msg->created_dt
+            ];
+            }
+             //Response
+
+         return $response->withStatus(200)
+                ->withJson($data);
+
+ });
+
+ Writing MiddleWare
+ -------------------
+ *code runs before or after calling function or class
+ *ex: logging, granting access , checking account bal before/after providing service
+ Chatter
+        |_ [Middleware]
+                    |_ Logging.php
+
+ Logging.php
+ ------------
+ namespace Chatter\Middleware
+
+ class Logging
+ {
+ public function __invoke($request,$response,$next)
+ {
+    error_log($request -> getMethod ."--".
+               $request->getUri());
+     $response = $next($request,$response);
+        //$next function created on fly
+
+    return $response;
+}
+}
+
+-> index.php
+
+use Chatter\Middleware\Logging as ChatterLogging
+
+$app->add(new ChatterLogging());
+
+*run url in localhost or postman
