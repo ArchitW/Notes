@@ -1,0 +1,9 @@
+npm init
+npm install --save express
+nmp install -g nodemon
+
+touch index.js
+copy nul index.js
+
+nodemon index.js
+
