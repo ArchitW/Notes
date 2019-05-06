@@ -28,3 +28,11 @@ use : https://flexboxfroggy.com/
 default: 0
 
 range  -ve to +ve int
+
+***align-self***
+
+Used for individual items in container
+
+`align-items` => all items in container
+
+`align-self` => individual item
