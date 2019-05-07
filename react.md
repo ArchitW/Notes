@@ -286,3 +286,57 @@ const person = (props) => {
 
 ```
 
+***State***
+```
+class .... {
+
+state = {
+    person : [
+        name:'aaa', age:20
+    ]
+}
+
+render() {
+    return (
+        <Person name={state.person[0].name}>
+    )
+}
+
+}
+```
+
+***Event Handling***
+functionNameHandler => this is method u r assigning as event handler
+
+
+```
+myFunctionHandler = () =>{
+    console.log('was clicked');
+}
+```
+```
+render() {
+return(
+<button onClick={this.myFunctionHandler}></button>
+// do not add() after function, it will call function during react load
+)}
+```
+
+***State in React Handler***
+
+```
+myFunctionHandler = () =>{
+WRONG -> this.state.persons[0].name="Test"
+
+this.setState({
+    persons:{ name : 'New Name', age:90 }
+    })
+
+}
+```
+
+return(
+    <input type="text" onChange
+)
+
+- Stateful /smart :manages state, Stateless /dumb / presentational: don't have state
