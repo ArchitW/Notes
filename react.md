@@ -335,8 +335,97 @@ this.setState({
 }
 ```
 
-return(
-    <input type="text" onChange
-)
+<button onClick></button>
 
 - Stateful /smart :manages state, Stateless /dumb / presentational: don't have state
+
+***Passing method refrence***
+you can pass methods as props.
+```
+<Person
+name={this.state.persons[0].name}
+age={this.state.person[0].age}
+//pass a function to Person
+click={this.myFunctionHandler}
+></Person>
+
+Person.js
+{props.click}
+
+```
+
+passing arguments
+functionHadler = (name) =>{
+...
+...
+}
+`
+`click={this.myFunctionHandler.bind(this, 'Max!')}`
+`
+or
+
+ `Onclick= () => this.functionHandler('Name');`
+
+
+ ***Two way binding***
+ ```
+person.js
+<input type = "text" 
+    onChange = />
+
+
+App.js
+nameChangedHandler = (event) => {
+
+this.setState ({
+    persons:[
+        {name: event.target.value
+        age:30
+        }
+    ]
+})
+}
+
+return(
+
+    <Person name={this.state.person[0].name}
+    age={this.state.person[0].age}
+    //bind here so changes can be reflected
+    nameUpdate = {this.nameChnageHandler}
+    >
+    </Person>
+)
+
+Person.js
+<input type="text" onChange = {props.nameUpdate}
+value={props.name} //previous name
+>
+ ```
+
+ ***Adding Styling***
+```
+Person.js, Person.css
+
+.css
+.Person {
+width:50%;
+margin:auto;
+text-align:center;
+}
+
+.js
+import './Person.css'
+<div className="Person"></div>
+
+OR
+const style = {
+    backgroundColor:'red',
+    font:'inherit,
+    border:'1px solid blue'
+}
+<button 
+style = {style}
+>
+</button>
+
+```
