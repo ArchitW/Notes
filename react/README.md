@@ -306,7 +306,7 @@ render() {
 ```
 
 ***Event Handling***
-functionNameHandler => this is method u r assigning as event handler
+`functionNameHandler` => this is method u r assigning as event handler
 
 
 ```
@@ -340,6 +340,7 @@ this.setState({
 - Stateful /smart :manages state, Stateless /dumb / presentational: don't have state
 
 ***Passing method refrence***
+
 you can pass methods as props.
 ```
 <Person
@@ -354,18 +355,19 @@ Person.js
 
 ```
 
-passing arguments
+***passing arguments***
+```
 functionHadler = (name) =>{
 ...
 ...
 }
-`
-`click={this.myFunctionHandler.bind(this, 'Max!')}`
-`
+
+click={this.myFunctionHandler.bind(this, 'Max!')}
+
 or
 
  `Onclick= () => this.functionHandler('Name');`
-
+```
 
  ***Two way binding***
  ```
@@ -379,7 +381,7 @@ nameChangedHandler = (event) => {
 
 this.setState ({
     persons:[
-        {name: event.target.value
+        {name: event.target.value,
         age:30
         }
     ]
@@ -417,7 +419,7 @@ text-align:center;
 import './Person.css'
 <div className="Person"></div>
 
-OR
+OR directly in js file
 const style = {
     backgroundColor:'red',
     font:'inherit,
@@ -427,5 +429,50 @@ const style = {
 style = {style}
 >
 </button>
+
+```
+
+***Conditional***
+```
+state = {
+    showPerson : false
+}
+
+togglePersonHandler = () =>{
+const currentState = this.state.showPerson;
+this.setState({
+    showPerson = !currentState
+})
+
+}
+
+<button onClick
+    this.togglePersonHandler}>
+}>
+
+{ this.state.show ? 
+    <div >
+
+    </div> : null
+}
+if(condition) ? true then show : false
+if show == true show dive else null
+
+
+OR
+use normal javascript 
+
+let person = null;
+if(this.state.showPerson){
+    person = (
+        <div></div>
+    )
+}
+
+render() {
+    return (
+        { perosn }
+    )
+}
 
 ```
