@@ -516,3 +516,131 @@ deletePersonHandler =(personIndex) => {
 }       
 
 }
+```
+
+
+***CSS***
+```
+const style= {
+  backgroundColor:red;
+  fontColor:white;
+}
+
+//chnage dynamically
+style.backgroundColor = 'blue'
+
+// passing list of class Names
+classes.push('red') <- push a new class
+```
+***Radium: Css wrapper***
+npm install --save radium
+```
+import Radium from 'radium';
+
+const style = {
+':hover' : {....}
+};
+
+onchange = () => {
+  style[':hover'] {
+    ...
+    ...
+  }
+}
+ export default Radium(App)
+```
+
+*** Media Queries ***
+```
+Person.js
+import Radim, {StyleRoot} from 'radium';
+
+const person = () => {
+
+  const style = {
+    '@media(min-width: 500px)':{
+      width:450px;
+    }
+  }
+};
+return(
+<StyleRoot>
+  <div className="person" style={style}></div>
+</StyleRoot>
+);
+export default Radium(person)
+
+```
+
+*** CSS Modules (Scoped CSS) ***
+
+unlock css modules
+`npm run eject`
+`webpack.config.dev and webpack.config.prod`
+css-loader
+```
+  options:{
+  modules:true,
+  localIdentName:'[name]__[local]__[hash:base64:5]'
+},
+```
+```
+App.js
+
+import vlasses from './App.css';
+<div className={classes.App}></div>
+
+```
+***Error Handling ***
+```
+
+Show custom error message to users
+import React , {Component} from 'react';
+
+class ErroRBoundry extends Component {
+  state = {
+    hasError: false,
+    errorMsg: ''
+  }
+componentDidCatach = (error, info) => {
+  this.setState({
+    hasError: true,
+    errorMsg: msg
+  });
+}
+
+render() {
+  if(this.state.hasError){
+    return <h1>Something Went Wrong</h1>;
+  }
+}
+else
+{
+return this.props.childern;
+}
+}
+
+export default errorMsg;
+
+
+App.js
+import errorMsg from './errorMsg'
+
+return (
+<errorMsg>
+  <Person />
+</errorMsg>
+);
+```
+
+*** COMPONENTS ***
+
+- class component
+- functional component
+
+| Class Component| Functional Component |
+|class XY extends Component | const Xy = props => {} |
+|Access to state, lifecycles hooks | Access to State|
+|access strate vias `this`| access via `props`|
+| used need to manage state| use in all cases |
+stateful  state = {}
