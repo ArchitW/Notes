@@ -446,6 +446,7 @@ this.setState({
 
 }
 
+render(
 <button onClick
     this.togglePersonHandler}>
 }>
@@ -457,7 +458,7 @@ this.setState({
 }
 if(condition) ? true then show : false
 if show == true show dive else null
-
+)
 
 OR
 use normal javascript 
@@ -476,3 +477,42 @@ render() {
 }
 
 ```
+
+***List***
+
+state = {
+    persons : [
+        {name:"a", age:"1"},
+        {name:"b", age:"2"},
+        {name:"c", age:"3"},
+     ]
+}
+
+//  how to access
+
+{
+    this.state.persons.map(person => {
+        return <Person 
+        name = {person.name}
+        age = {person.age} 
+        />
+    })
+}       
+
+deletePersonHandler =(personIndex) => {
+    const person=this.state.persons;
+    persons.splice(personIndex,1);
+    this.setState({persons:persons})
+}
+    {
+    this.state.persons.map((person,index) => {
+        return <Person 
+        name = {person.name}
+        age = {person.age} 
+        click = {() => this.deletePersonHandler(index)
+        ler
+        />
+    })
+}       
+
+}
