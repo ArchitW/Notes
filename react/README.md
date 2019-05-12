@@ -1,7 +1,7 @@
 
 # React
 
-  
+
 
 ## ES-6
 
@@ -11,7 +11,7 @@
 
 **Const** : variables that do not change
 
-  
+
 ***Arrow Functions***
 
 **type 1**
@@ -27,31 +27,31 @@
 
 **type 3**
 
-`const testFunc = () => {}` 
+`const testFunc = () => {}`
 - solves a lot of issues with `this` keyword, it will always keep its context
- 
+
 
 *arrow function with no argument*
 
 `const testFunc = () => {}`
 
-  
+
 
 *arrow function with 1 argument*
 
 `const testFunc = variable =>{}`
 
-  
+
 
 *arrow function with 1+ argument*
 
 `const testFunc = (variable1, variable2) =>{}`
 
-  
+
 
 *arrow function with only 1 line of code in it*
 
-`const multiply = (number) =>  number * 2` 
+`const multiply = (number) =>  number * 2`
 - can , remove `return` keyword omit curly brace
 
 
@@ -59,7 +59,7 @@
 ***Import & Export (Modules)***
 
 
-- inside of js file we can import content from another file, so that js know dependencies 
+- inside of js file we can import content from another file, so that js know dependencies
 
 *example*
 
@@ -87,7 +87,7 @@ class Capital {
     methods()
 }
 ```
-usage 
+usage
 
 `constant class = new Class()`
 
@@ -140,7 +140,7 @@ person.printGender()
 ***Cls, prop, ,methods Modern Syntax***
 
 
-|  | Old ways| Next Gen | 
+|  | Old ways| Next Gen |
 |--|--|--|
 *Constructor*|`constructor(){ this.myProperty='value }`  | `myProperty = value`  ||
 *Property*|`myMethod(){.....}`|`myMethod = () => {......}`|
@@ -159,7 +159,7 @@ const newObj = {
     ...oldObj,
     newProp:5
     }
-    
+
 // if oldObj have prop `newProp` it will be overwritten
 ```
 
@@ -196,17 +196,17 @@ console.log(sex) => undefined
 
 
 ## **Setting up local react project**
- 
+
 
 ***Install React Globally***
 `npm install -g create-react-app`
 
-  
+
 
 ***Create New Project***
 `create-react-app myApp`
 
-  
+
 
 **Folder Structure**
 
@@ -218,7 +218,7 @@ console.log(sex) => undefined
 **[f]src** (react application)
 	`index.html`
     `package.json`
-    
+
  ***REACT***   
     try to have 1 root element while returning, nest everything in it.
 ```
@@ -372,7 +372,7 @@ or
  ***Two way binding***
  ```
 person.js
-<input type = "text" 
+<input type = "text"
     onChange = />
 
 
@@ -425,7 +425,7 @@ const style = {
     font:'inherit,
     border:'1px solid blue'
 }
-<button 
+<button
 style = {style}
 >
 </button>
@@ -451,7 +451,7 @@ render(
     this.togglePersonHandler}>
 }>
 
-{ this.state.show ? 
+{ this.state.show ?
     <div >
 
     </div> : null
@@ -461,7 +461,7 @@ if show == true show dive else null
 )
 
 OR
-use normal javascript 
+use normal javascript
 
 let person = null;
 if(this.state.showPerson){
@@ -492,9 +492,9 @@ state = {
 
 {
     this.state.persons.map(person => {
-        return <Person 
+        return <Person
         name = {person.name}
-        age = {person.age} 
+        age = {person.age}
         />
     })
 }       
@@ -506,9 +506,9 @@ deletePersonHandler =(personIndex) => {
 }
     {
     this.state.persons.map((person,index) => {
-        return <Person 
+        return <Person
         name = {person.name}
-        age = {person.age} 
+        age = {person.age}
         click = {() => this.deletePersonHandler(index)
         ler
         />
@@ -638,9 +638,30 @@ return (
 - class component
 - functional component
 
-| Class Component| Functional Component |
-|class XY extends Component | const Xy = props => {} |
-|Access to state, lifecycles hooks | Access to State|
-|access strate vias `this`| access via `props`|
-| used need to manage state| use in all cases |
-stateful  state = {}
+|           |Class Component| Functional Component  |
+| ------------- |:-------------:| -----:|
+||class XY extends Component | const Xy = props => {} |
+||Access to state, lifecycles hooks | Access to State|
+||access strate vias `this`| access via `props`|
+|| used need to manage state| use in all cases |
+
+
+***Lifecycle***
+*Avaliable only Class-Based component*
+- constructor()
+- getDerivedStateFromProps()
+- getSnapshbeforeUpdate()
+- componentDidCatach()
+- componentWillUnmount()
+- shouldComponentUpdate()
+- componentDidUpdate()
+- componentDidMount()
+- render()
+
+when component is created
+
+-> construct(props) [Do: Setup State]
+-> getDerivedStateFromProps(props, state)
+-> render() => returns JSX
+-> render child COMPONENTS
+-> componentDidMount() [dont update state here,unless in `then block` , causes component to re-render]
