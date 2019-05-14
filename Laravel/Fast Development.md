@@ -34,9 +34,13 @@ public function boot(){
 ```
 php artisan make:auth
 ```
+***Swagger***
+use to create API documantation
+
 
 ***make model view and controller***
 labs.infyom.com/laravelgenerator
 
-***Swagger***
-use to create API documantation
+
+
+Follow docs to update composer and add refrences to App.php
