@@ -665,3 +665,22 @@ when component is created
 -> render() => returns JSX
 -> render child COMPONENTS
 -> componentDidMount() [dont update state here,unless in `then block` , causes component to re-render]
+
+```
+class App ..... {
+
+  constructor(props) {
+    super(props); // executes const. of component accessing
+//can also init state
+this.state = {}; // init thats why `this` and not `setState`
+  }
+
+static getDerivedStateFromProps(props, state) {
+
+  return state;
+}
+
+}
+
+
+```
