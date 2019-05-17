@@ -638,12 +638,12 @@ return (
 - class component
 - functional component
 
-|           |Class Component| Functional Component  |
+|  Class Component       | Functional Component|  |
 | ------------- |:-------------:| -----:|
-||class XY extends Component | const Xy = props => {} |
-||Access to state, lifecycles hooks | Access to State|
-||access strate vias `this`| access via `props`|
-|| used need to manage state| use in all cases |
+|class XY extends Component | const Xy = props => {} |
+|Access to state, lifecycles hooks | Access to State|
+|access strate vias `this`| access via `props`|
+| used need to manage state| use in all cases |
 
 
 ***Lifecycle***
